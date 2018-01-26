@@ -11,8 +11,10 @@ wc = WordCloud(background_color='white',  # 背景颜色
                max_words=1000,  # 最大词数
                mask=back_color,  # 以该参数值作图绘制词云，这个参数不为空时，width和height会被忽略
                max_font_size=100,  # 显示字体的最大值
-               stopwords=STOPWORDS.add('我国'), # 使用内置的屏蔽词，再添加'苟利国'
-               font_path="F:\WordCloud-master\WordCloud-master\static\simheittf\simhei.ttf",  # 解决显示口字型乱码问题，可进入C:/Windows/Fonts/目录更换字体
+               stopwords=STOPWORDS.add('我国'), # 使用内置的屏蔽词，再添加'苟利国',需要增加其他屏蔽词时，
+               #加入set，STOPWORDS.add(('我国','国家','祖国'))
+               font_path="F:\WordCloud-master\WordCloud-master\static\simheittf\simhei.ttf",  # 解决显示口字型乱码问题，
+               #可进入C:/Windows/Fonts/目录更换字体
                random_state=42,  # 为每个词返回一个PIL颜色
                # width=1000,  # 图片的宽
                # height=860  #图片的长
