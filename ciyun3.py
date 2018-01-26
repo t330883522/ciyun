@@ -14,8 +14,7 @@ wc = WordCloud(background_color='white',  # 背景颜色
                #可进入C:/Windows/Fonts/目录更换字体
                random_state=42,  # 为每个词返回一个PIL颜色
                # width=1000,  # 图片的宽
-               # height=860  #图片的长
-               )
+               # height=860  #图片的长)
 # WordCloud各含义参数请点击 wordcloud参数
 # 添加自己的词库分词，比如添加'金三胖'到jieba词库后，当你处理的文本中含有金三胖这个词，
 # 就会直接将'金三胖'当作一个词，而不会得到'金三'或'三胖'这样的词
