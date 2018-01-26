@@ -3,10 +3,7 @@ import jieba
 from scipy.misc import imread  # 这是一个处理图像的函数
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
-
 back_color = imread('F:\WordCloud-master\WordCloud-master\o_003.jpg')  # 解析该图片
-
-
 wc = WordCloud(background_color='white',  # 背景颜色
                max_words=1000,  # 最大词数
                mask=back_color,  # 以该参数值作图绘制词云，这个参数不为空时，width和height会被忽略
@@ -20,18 +17,14 @@ wc = WordCloud(background_color='white',  # 背景颜色
                # height=860  #图片的长
                )
 # WordCloud各含义参数请点击 wordcloud参数
-
 # 添加自己的词库分词，比如添加'金三胖'到jieba词库后，当你处理的文本中含有金三胖这个词，
 # 就会直接将'金三胖'当作一个词，而不会得到'金三'或'三胖'这样的词
 jieba.add_word('金三胖')
-
 # 打开词源的文本文件
 # text = open('F:\WordCloud-master\WordCloud-master\cnword.txt',encoding='utf-8').read()
 with open('F:\WordCloud-master\WordCloud-master\cnword.txt','r',encoding='UTF-8') as f:
     text = f.read()
     f.close()
-
-
 # 该函数的作用就是把屏蔽词去掉，使用这个函数就不用在WordCloud参数中添加stopwords参数了
 # 把你需要屏蔽的词全部放入一个stopwords文本文件里即可
 def stop_words(texts):
@@ -44,10 +37,7 @@ def stop_words(texts):
         if word.strip() not in unicode_text:
             words_list.append(word)
     return ' '.join(words_list)  # 注意是空格
-
-
 text = stop_words(text)
-
 wc.generate(text)
 # 基于彩色图像生成相应彩色
 image_colors = ImageColorGenerator(back_color)
